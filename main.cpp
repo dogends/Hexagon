@@ -75,9 +75,7 @@ void onRender(void) {
 	glColor3f( 0.0f, 0.0f, 1.0f );
 	glCallList(1);
 
-	/* flush everything in the current pipeline*/
- //   glFlush();
-
+    // swap buffers
     glutSwapBuffers();
 }
 
