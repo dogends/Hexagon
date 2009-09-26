@@ -10,12 +10,14 @@
 class Hexagon {
 
 public:
-	
+
 	Hexagon* connections[6];
-	
+
 	float x,y,z;
-	
+
 	Hexagon();
 	Hexagon(float pos_x, float pos_y, float pos_z);
-	
+
 };
+
+

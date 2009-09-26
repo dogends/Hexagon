@@ -23,3 +23,4 @@ Hexagon::Hexagon( float x_pos, float y_pos, float z_pos )
 	y=y_pos;
 	z=z_pos;
 }
+
