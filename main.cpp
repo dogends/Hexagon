@@ -1,13 +1,9 @@
-#ifdef __APPLE__
-//#include <GLUT/glut.h>
-#else
-//#include <GL/glut.h>
-#endif
-#include <math.h>
+
+#include "common.h"
 #include "hexagons.h"
 
 
-#include <GL/glut.h>
+
 
 
 GLfloat rot = 0.0f;
@@ -16,9 +12,7 @@ GLfloat ambientLight[] = { 0.3f, 0.3f, 0.3f, 1.0f };
 GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 //GLfloat specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
-const GLfloat PI = 3.14159265f;
 
-#define deg_to_rad(d) d*(PI/180.0f)
 
 GLint hex_id = 0;
 

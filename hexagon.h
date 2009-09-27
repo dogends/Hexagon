@@ -11,13 +11,24 @@ class Hexagon {
 
 public:
 
+	enum Edge
+	{
+	    EdgeTop=0,
+	    EdgeTopRight=1,
+	    EdgeBottomRight=2,
+	    EdgeBottom=3,
+	    EdgeBottomLeft=4,
+	    EdgeTopLeft=5
+	};
+
 	Hexagon* connections[6];
 
 	float x,y,z;
 
 	Hexagon();
-	Hexagon(float pos_x, float pos_y, float pos_z);
+	Hexagon(float x, float y, float z);
 
+    void setPosition( float x, float y, float z );
 };
 
 

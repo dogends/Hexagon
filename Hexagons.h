@@ -11,12 +11,12 @@
 
 #include "hexagon.h"
 
-class Hexagons : public std::vector<Hexagon*> 
+class Hexagons : public std::vector<Hexagon*>
 {
 public:
-	
-	Hexagon* root;
-	
+
+    Hexagon* root;
+
 	Hexagons();
 	~Hexagons();
 

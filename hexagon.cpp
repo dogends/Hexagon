@@ -17,10 +17,14 @@ Hexagon::Hexagon() : x(0), y(0), z(0)
 }
 
 
-Hexagon::Hexagon( float x_pos, float y_pos, float z_pos )
+Hexagon::Hexagon( float x, float y, float z )
 {
-	x=x_pos;
-	y=y_pos;
-	z=z_pos;
+    setPosition( x, y, z );
 }
 
+void Hexagon::setPosition( float x, float y, float z )
+{
+    this->x = x;
+    this->y = y;
+    this->z = z;
+}
