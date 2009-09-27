@@ -43,17 +43,17 @@ void onRender(void) {
 	std::vector<Hexagon*>::iterator last = pHexagons->end();
 
 int cnt=0;
-
+        glColor3f( 0.0f, 0.0f, 1.0f );
     for (;current!=last;current++) {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        glTranslatef( (*current)->x, (*current)->y, -20.0f );
+        glTranslatef( (*current)->x, (*current)->y, -60.0f );
         //glScalef( 5.0f, 5.0f, 5.0f );
-        glRotatef( rot+(cnt), 1.0f, 0.0, 0.0 );
-        glColor3f( 1.0f, 0.0f, 0.0f );
+        glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
+
         glCallList(1);
 
-        cnt+=2;
+        cnt+=1;
     }
 
     // swap buffers
@@ -81,7 +81,7 @@ void onResize(int w, int h) {
 
 /* timer event handler */
 void onTimer( int id ) {
-	rot+=1.0f;
+	rot+=2.0f;
 	if (rot>360.0f) rot-=360.0f;
 	glutPostRedisplay();
 	glutTimerFunc( 10, onTimer, 1 );

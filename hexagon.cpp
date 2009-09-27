@@ -18,6 +18,16 @@ const Hexagon::Edge Hexagon::EdgeOpposite[6] =
     EdgeBottomRight
 };
 
+const Hexagon::Edge Hexagon::EdgeAjacents[6][2] =
+{
+    { EdgeTopLeft, EdgeTopRight },
+    { EdgeTop, EdgeBottomRight },
+    { EdgeTopRight, EdgeBottom },
+    { EdgeBottomRight, EdgeBottomLeft },
+    { EdgeBottom, EdgeTopLeft },
+    { EdgeBottomLeft, EdgeTop }
+};
+
 Hexagon::Hexagon()
 {
     setPosition(0,0,0);
