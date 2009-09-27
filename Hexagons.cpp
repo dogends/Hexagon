@@ -30,6 +30,9 @@ Hexagons* Hexagons::create( int radius ) {
 	// first create the root hexagon, this is positioned centered at 0,0,0
 	retval->root = new Hexagon(0,0,0);
 
+	// add this hexagon to the complete list
+	retval->push_back( retval->root );
+
 	// create a list of hexagons that need to be processed
 	std::vector<Hexagon*> to_process;
 
@@ -42,7 +45,7 @@ Hexagons* Hexagons::create( int radius ) {
     float offset_x = cos( angle ) * hyp;
     float offset_y = sin( angle ) * hyp;
     int cnt = 1; // number of hexagons created
-    int max_cnt = 37;  // TODO :- need to calculate this
+    int max_cnt = 19;  // TODO :- need to calculate this
 
     float offsets[6][2] = {
         {  0.0f,     -hyp },         /* top */
@@ -54,24 +57,36 @@ Hexagons* Hexagons::create( int radius ) {
     };
 
 	// create the adjacent hexagons
-	while ( to_process.size() > 0 ) {
+	while ( to_process.size() > 0 && cnt<max_cnt ) {
 
 		// each hexagon has 6 connections (0-5), 0 being the top side, incrementing clockwise
 		Hexagon* current = to_process.back();
+        to_process.pop_back();
 
 		// loop through each connection and see if it has already been assigned to a neighbour
-		for (int edge=Hexagon::EdgeTop;edge<=Hexagon::EdgeTopLeft;edge++) {
+		for (int edge=Hexagon::EdgeTop;edge<=Hexagon::EdgeTopLeft && cnt<max_cnt;edge++) {
 
 			if (current->connections[edge]==NULL) {
 
 				// attach a new hexagon
 				Hexagon* hex = new Hexagon();
+				cnt++;
 
 				// work out the position of the hexagon
 				float x = current->x + offsets[edge][0];
 				float y = current->y + offsets[edge][1];
 
 				hex->setPosition( x, y, 0 );
+				hex->connections[ Hexagon::EdgeOpposite[ edge ] ] = current;
+
+				current->connections[ edge ] = hex;
+
+                // add this hexagon to the complete list
+                retval->push_back( hex );
+
+              //  to_process.push_back( hex );
+
+              to_process.insert( to_process.begin(), hex );
 
 			}
 

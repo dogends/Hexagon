@@ -6,9 +6,7 @@
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
  *
  */
-
-#include <vector>
-
+#include "common.h"
 #include "hexagon.h"
 
 class Hexagons : public std::vector<Hexagon*>

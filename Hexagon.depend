@@ -1,22 +1,25 @@
 # depslib dependency file v1.0
-1254013360 source:c:\projects\hexagon\hexagon.cpp
+1254015864 source:c:\projects\hexagon\hexagon.cpp
 	"hexagon.h"
-	<memory.h>
 
-1254012886 c:\projects\hexagon\hexagon.h
+1254015068 c:\projects\hexagon\hexagon.h
+	"common.h"
 
-1254013566 source:c:\projects\hexagon\main.cpp
+1254017514 source:c:\projects\hexagon\main.cpp
 	"common.h"
 	"hexagons.h"
 
-1254009338 c:\projects\hexagon\hexagons.h
-	<vector>
+1254015132 c:\projects\hexagon\hexagons.h
+	"common.h"
 	"hexagon.h"
 
-1253935024 source:c:\projects\hexagon\hexagons.cpp
+1254017838 source:c:\projects\hexagon\hexagons.cpp
+	"common.h"
 	"Hexagons.h"
 
-1254013606 c:\projects\hexagon\common.h
+1254016322 c:\projects\hexagon\common.h
 	<GL/glut.h>
+	<memory>
 	<math.h>
+	<vector>
 

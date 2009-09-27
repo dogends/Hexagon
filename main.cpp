@@ -3,8 +3,7 @@
 #include "hexagons.h"
 
 
-
-
+std::auto_ptr<Hexagons> pHexagons;
 
 GLfloat rot = 0.0f;
 GLfloat lightPos[] = { 0.0f, 0.0f, 0.0f, 1.0f };
@@ -40,34 +39,22 @@ void onRender(void) {
 	glEnable( GL_COLOR_MATERIAL );
 	glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE );
 
-	// Draw hexagon 1
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glTranslatef( 0.0f, 0.0f, -40.0f );
-	glScalef( 5.0f, 5.0f, 5.0f );
-	glRotatef( rot, 1.0f, 0.0, 0.0 );
-	glColor3f( 1.0f, 0.0f, 0.0f );
-	glCallList(1);
+    std::vector<Hexagon*>::iterator current = pHexagons->begin();
+	std::vector<Hexagon*>::iterator last = pHexagons->end();
 
-	// Draw hexagon 2
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glTranslatef( 10.0f, 0.0f, -40.0f );
-	glScalef( 5.0f, 5.0f, 5.0f );
-	glRotatef( 60.0f, 0.0f, 0.0f, 1.0f );
-	glRotatef( rot, 1.0f, 0.0, 0.0 );
-	glColor3f( 0.0f, 1.0f, 0.0f );
-	glCallList(1);
+int cnt=0;
 
-	// Draw hexagon 3
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glTranslatef( -10.0f, 0.0f, -40.0f );
-	glScalef( 5.0f, 5.0f, 5.0f );
-	glRotatef( -60.0f, 0.0f, 0.0f, 1.0f );
-	glRotatef( rot, 1.0f, 0.0, 0.0 );
-	glColor3f( 0.0f, 0.0f, 1.0f );
-	glCallList(1);
+    for (;current!=last;current++) {
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        glTranslatef( (*current)->x, (*current)->y, -20.0f );
+        //glScalef( 5.0f, 5.0f, 5.0f );
+        glRotatef( rot+(cnt), 1.0f, 0.0, 0.0 );
+        glColor3f( 1.0f, 0.0f, 0.0f );
+        glCallList(1);
+
+        cnt+=2;
+    }
 
     // swap buffers
     glutSwapBuffers();
@@ -120,6 +107,8 @@ void setup() {
 }
 
 int main (int argc, char * argv[]) {
+
+    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 5 ) );
 
 	/* Initialise glut with any passed command line options */
 	glutInit(&argc, argv);

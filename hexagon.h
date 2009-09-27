@@ -6,6 +6,7 @@
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
  *
  */
+#include "common.h"
 
 class Hexagon {
 
@@ -20,6 +21,9 @@ public:
 	    EdgeBottomLeft=4,
 	    EdgeTopLeft=5
 	};
+
+	static const Edge EdgeOpposite[6];
+	static const Edge EdgeAjacents[6][2];
 
 	Hexagon* connections[6];
 

@@ -6,12 +6,22 @@
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
  *
  */
-
 #include "hexagon.h"
-#include <memory.h>
 
-Hexagon::Hexagon() : x(0), y(0), z(0)
+const Hexagon::Edge Hexagon::EdgeOpposite[6] =
 {
+    EdgeBottom,
+    EdgeBottomLeft,
+    EdgeTopLeft,
+    EdgeTop,
+    EdgeTopRight,
+    EdgeBottomRight
+};
+
+Hexagon::Hexagon()
+{
+    setPosition(0,0,0);
+
 	// reset connections
 	memset( connections, 0,  sizeof(connections) );
 }
@@ -20,6 +30,9 @@ Hexagon::Hexagon() : x(0), y(0), z(0)
 Hexagon::Hexagon( float x, float y, float z )
 {
     setPosition( x, y, z );
+
+    // reset connections
+	memset( connections, 0,  sizeof(connections) );
 }
 
 void Hexagon::setPosition( float x, float y, float z )
