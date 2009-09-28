@@ -14,7 +14,7 @@ GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 
 
 GLint hex_id = 0;
-
+GLfloat cam_z = 0.0f;
 #define NUM_TEXTURES 8
 
 char* texture_filenames[ NUM_TEXTURES ] = {
@@ -34,7 +34,6 @@ Hexagons hexagons;
 
 /* opengl drawing event handler */
 void onRender(void) {
-
 	/* set clear colour to black */
     glClearColor(0.0, 0.0, 0.0, 1.0);
 
@@ -88,7 +87,7 @@ glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        glTranslatef( (*current)->x, (*current)->y, -12.0f );
+        glTranslatef( (*current)->x, (*current)->y, -20.0f );
         //glScalef( 5.0f, 5.0f, 5.0f );
         glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
 
@@ -185,7 +184,7 @@ GLfloat tex_coords[7][2] = {
 
 int main (int argc, char * argv[]) {
 
-    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 5 ) );
+    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 10 ) );
 
 	/* Initialise glut with any passed command line options */
 	glutInit(&argc, argv);
