@@ -34,6 +34,7 @@ Hexagons hexagons;
 
 /* opengl drawing event handler */
 void onRender(void) {
+
 	/* set clear colour to black */
     glClearColor(0.0, 0.0, 0.0, 1.0);
 
@@ -79,14 +80,18 @@ glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
     int tex_num = 0;
 
+glMatrixMode(GL_MODELVIEW);
+
     for (;current!=last;current++) {
+        glLoadIdentity();
 
         glBindTexture( GL_TEXTURE_2D, textures[tex_num] );
         tex_num++;
         if (tex_num>=NUM_TEXTURES) tex_num = 0;
 
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
+
+
+
         glTranslatef( (*current)->x, (*current)->y, -20.0f );
         //glScalef( 5.0f, 5.0f, 5.0f );
         glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
@@ -95,6 +100,8 @@ glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
         cnt+=1;
     }
+
+
 
     // swap buffers
     glutSwapBuffers();
@@ -117,6 +124,7 @@ void onResize(int w, int h) {
 
 	gluPerspective(60.0f, aspectRatio, 10.0f, 200.0f );
 
+    //glRotatef(90.0f,1.0f,0,0);
 }
 
 /* timer event handler */
