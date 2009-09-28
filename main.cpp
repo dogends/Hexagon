@@ -124,7 +124,7 @@ void onResize(int w, int h) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective(60.0f, aspectRatio, 10.0f, 200.0f );
+	gluPerspective(60.0f, aspectRatio, 1.0f, 200.0f );
 
     //glRotatef(90.0f,1.0f,0,0);
 }
@@ -197,7 +197,7 @@ GLfloat tex_coords[7][2] = {
 
 int main (int argc, char * argv[]) {
 
-    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 10 ) );
+    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 15 ) );
 
 	/* Initialise glut with any passed command line options */
 	glutInit(&argc, argv);
