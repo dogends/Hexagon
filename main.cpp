@@ -12,7 +12,7 @@ GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 //GLfloat specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
 
-
+GLfloat angle = 0.0f;
 GLint hex_id = 0;
 GLfloat cam_z = 0.0f;
 #define NUM_TEXTURES 8
@@ -90,9 +90,11 @@ glMatrixMode(GL_MODELVIEW);
         if (tex_num>=NUM_TEXTURES) tex_num = 0;
 
 
+glTranslatef( 0.0f,00.0f,-30.0f );
+ glRotatef( angle, 1.0f, 0.0, 0.0f );
 
 
-        glTranslatef( (*current)->x, (*current)->y, -20.0f );
+        glTranslatef( (*current)->x, (*current)->y, 0.0f );
         //glScalef( 5.0f, 5.0f, 5.0f );
         glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
 
@@ -131,6 +133,9 @@ void onResize(int w, int h) {
 void onTimer( int id ) {
 	rot+=2.0f;
 	if (rot>360.0f) rot-=360.0f;
+
+	angle+=0.50f;
+	if (angle>360.0f) angle-=360.0f;
 	glutPostRedisplay();
 	glutTimerFunc( 10, onTimer, 1 );
 }
