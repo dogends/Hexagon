@@ -45,7 +45,8 @@ Hexagons* Hexagons::create( int radius ) {
     float offset_x = cos( angle ) * hyp;
     float offset_y = sin( angle ) * hyp;
     int cnt = 1; // number of hexagons created
-    int max_cnt = 1027;  // TODO :- need to calculate this
+    //int max_cnt = 1027;  // TODO :- need to calculate this
+    int max_cnt = 469;  // TODO :- need to calculate this
 
     float offsets[6][2] = {
         {  0.0f,     -hyp },         /* top */

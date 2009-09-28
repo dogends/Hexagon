@@ -5,8 +5,12 @@
 #include <memory>
 #include <math.h>
 #include <vector>
+#include <SOIL.h>
 
-#define PI 3.14159265f
+#ifndef PI
+	#define PI       3.14159265358979323846
+#endif
+
 #define deg_to_rad(d) d*(PI/180.0f)
 
 

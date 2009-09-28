@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Debug" />
+	<ActiveTarget name="Release" />
+	<File name="Hexagons.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="1117" topLine="27" />
+	</File>
+	<File name="Hexagons.h" open="0" top="0" tabpos="2">
+		<Cursor position="153" topLine="0" />
+	</File>
+	<File name="common.h" open="0" top="0" tabpos="6">
+		<Cursor position="71" topLine="0" />
+	</File>
+	<File name="hexagon.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="445" topLine="0" />
+	</File>
+	<File name="hexagon.h" open="0" top="0" tabpos="3">
+		<Cursor position="401" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1878" topLine="76" />
+	</File>
 </CodeBlocks_layout_file>

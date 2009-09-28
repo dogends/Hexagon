@@ -5,7 +5,7 @@
 1254018130 c:\projects\hexagon\hexagon.h
 	"common.h"
 
-1254024778 source:c:\projects\hexagon\main.cpp
+1254104432 source:c:\projects\hexagon\main.cpp
 	"common.h"
 	"hexagons.h"
 
@@ -13,13 +13,16 @@
 	"common.h"
 	"hexagon.h"
 
-1254024822 source:c:\projects\hexagon\hexagons.cpp
+1254097632 source:c:\projects\hexagon\hexagons.cpp
 	"common.h"
 	"Hexagons.h"
 
-1254016322 c:\projects\hexagon\common.h
+1254091764 c:\projects\hexagon\common.h
 	<GL/glut.h>
 	<memory>
 	<math.h>
 	<vector>
+	<SOIL.h>
+
+1215479608 c:\libraries\soil\include\soil.h
 

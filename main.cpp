@@ -15,6 +15,21 @@ GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 
 GLint hex_id = 0;
 
+#define NUM_TEXTURES 8
+
+char* texture_filenames[ NUM_TEXTURES ] = {
+    "shrek.png",
+    "fiona.png",
+    "donkey.png",
+    "charming.png",
+    "gingerbread.png",
+    "lord.png",
+    "cat.png",
+    "pinocchio.png"
+};
+
+GLuint textures[ NUM_TEXTURES ];
+
 Hexagons hexagons;
 
 /* opengl drawing event handler */
@@ -29,7 +44,7 @@ void onRender(void) {
 	glEnable( GL_DEPTH_TEST );
 	glFrontFace( GL_CW );
 	//glEnable( GL_CULL_FACE );
-
+/*
 	glEnable(GL_LIGHTING);
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight );
@@ -38,16 +53,42 @@ void onRender(void) {
 	glEnable( GL_LIGHT0 );
 	glEnable( GL_COLOR_MATERIAL );
 	glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE );
-
+*/
     std::vector<Hexagon*>::iterator current = pHexagons->begin();
 	std::vector<Hexagon*>::iterator last = pHexagons->end();
 
-int cnt=0;
-        glColor3f( 0.0f, 0.0f, 1.0f );
+    int cnt=0;
+  //  glColor3f( 0.0f, 0.0f, 1.0f );
+
+   glEnable( GL_TEXTURE_2D );
+
+
+    // select modulate to mix texture with color for shading
+    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+
+    // when texture area is small, bilinear filter the closest mipmap
+ //   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+   //                  GL_LINEAR_MIPMAP_NEAREST );
+    // when texture area is large, bilinear filter the original
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+
+    // the texture wraps over at the edges (repeat)
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    int tex_num = 0;
+
     for (;current!=last;current++) {
+
+        glBindTexture( GL_TEXTURE_2D, textures[tex_num] );
+        tex_num++;
+        if (tex_num>=NUM_TEXTURES) tex_num = 0;
+
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        glTranslatef( (*current)->x, (*current)->y, -60.0f );
+        glTranslatef( (*current)->x, (*current)->y, -12.0f );
         //glScalef( 5.0f, 5.0f, 5.0f );
         glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
 
@@ -88,10 +129,40 @@ void onTimer( int id ) {
 }
 
 void setup() {
+
+    for (int i=0; i<NUM_TEXTURES; i++) {
+        textures[i] = SOIL_load_OGL_texture
+        (
+            texture_filenames[i],
+            SOIL_LOAD_AUTO,
+            SOIL_CREATE_NEW_ID,
+            SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+        );
+
+    }
+
+
+GLfloat tex_coords[7][2] = {
+    { 0.75f, 1.0f },
+    { 1.0f,  0.5f },
+    { 0.75f, 0.0f },
+    { 0.25f, 0.0f },
+    { 0.0f,  0.5f },
+    { 0.25f, 1.0f },
+    { 0.75f, 1.0f }
+};
+
 	glNewList(1, GL_COMPILE );
 
+    // setup texture mapping
+      //glEnable( GL_TEXTURE_2D );
+      //glBindTexture( GL_TEXTURE_2D, 1 );
+
 		glBegin( GL_TRIANGLE_FAN );
-		glVertex3f( 0.0f, 0.0f, 0.0f );
+
+            glTexCoord2d( 0.5f, 0.5f );
+            glVertex3f( 0.0f, 0.0f, 0.0f );
+
 		for (int p=0; p<7; p++ )
 		{
 			GLfloat angle = 30.0f + (p*60.0f);
@@ -99,11 +170,17 @@ void setup() {
 			GLfloat x = 1.0f*sin(deg_to_rad(angle));
 			GLfloat y = 1.0f*cos(deg_to_rad(angle));
 
+			glTexCoord2d( tex_coords[p][0] , tex_coords[p][1] );
 			glVertex3f( x, y, 0.0f );
+
+
 		}
+
+
 		glEnd();
 
 	glEndList();
+
 }
 
 int main (int argc, char * argv[]) {
