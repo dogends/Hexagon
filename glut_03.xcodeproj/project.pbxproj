@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B03491C1071FEEC00B6DFD1 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B03491B1071FEEC00B6DFD1 /* libSOIL.a */; };
+		0B034948107201F700B6DFD1 /* SOIL.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B034947107201F700B6DFD1 /* SOIL.c */; };
+		0B03494D1072021600B6DFD1 /* stb_image_aug.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B03494A1072021600B6DFD1 /* stb_image_aug.c */; };
+		0B03494E1072021600B6DFD1 /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B03494B1072021600B6DFD1 /* image_helper.c */; };
+		0B03494F1072021600B6DFD1 /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B03494C1072021600B6DFD1 /* image_DXT.c */; };
+		0B0349691072033B00B6DFD1 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0349681072033B00B6DFD1 /* Carbon.framework */; };
 		0B99D15E106A48BD008267D0 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B99D15C106A48BD008267D0 /* GLUT.framework */; };
 		0B99D15F106A48BD008267D0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B99D15D106A48BD008267D0 /* OpenGL.framework */; };
 		0B99D197106A8CFC008267D0 /* hexagon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B99D196106A8CFC008267D0 /* hexagon.cpp */; };
@@ -28,12 +34,19 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0B03491B1071FEEC00B6DFD1 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = ../../../Downloads/SOIL/lib/libSOIL.a; sourceTree = SOURCE_ROOT; };
+		0B034947107201F700B6DFD1 /* SOIL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SOIL.c; path = ../../../Downloads/SOIL/src/SOIL.c; sourceTree = SOURCE_ROOT; };
+		0B03494A1072021600B6DFD1 /* stb_image_aug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stb_image_aug.c; path = ../../../Downloads/SOIL/src/stb_image_aug.c; sourceTree = SOURCE_ROOT; };
+		0B03494B1072021600B6DFD1 /* image_helper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = image_helper.c; path = ../../../Downloads/SOIL/src/image_helper.c; sourceTree = SOURCE_ROOT; };
+		0B03494C1072021600B6DFD1 /* image_DXT.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = image_DXT.c; path = ../../../Downloads/SOIL/src/image_DXT.c; sourceTree = SOURCE_ROOT; };
+		0B0349681072033B00B6DFD1 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0B99D15C106A48BD008267D0 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		0B99D15D106A48BD008267D0 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		0B99D195106A8CFC008267D0 /* hexagon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hexagon.h; sourceTree = "<group>"; };
 		0B99D196106A8CFC008267D0 /* hexagon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hexagon.cpp; sourceTree = "<group>"; };
 		0B99D1DD106A8EFE008267D0 /* Hexagons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagons.h; sourceTree = "<group>"; };
 		0B99D1DE106A8EFE008267D0 /* Hexagons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hexagons.cpp; sourceTree = "<group>"; };
+		0BEC4F1F1071F51800EEE326 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* glut_03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = glut_03; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,6 +57,8 @@
 			files = (
 				0B99D15E106A48BD008267D0 /* GLUT.framework in Frameworks */,
 				0B99D15F106A48BD008267D0 /* OpenGL.framework in Frameworks */,
+				0B03491C1071FEEC00B6DFD1 /* libSOIL.a in Frameworks */,
+				0B0349691072033B00B6DFD1 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +68,8 @@
 		08FB7794FE84155DC02AAC07 /* glut_03 */ = {
 			isa = PBXGroup;
 			children = (
+				0B0349681072033B00B6DFD1 /* Carbon.framework */,
+				0B03491B1071FEEC00B6DFD1 /* libSOIL.a */,
 				0B99D15C106A48BD008267D0 /* GLUT.framework */,
 				0B99D15D106A48BD008267D0 /* OpenGL.framework */,
 				08FB7795FE84155DC02AAC07 /* Source */,
@@ -65,6 +82,11 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0B03494A1072021600B6DFD1 /* stb_image_aug.c */,
+				0B03494B1072021600B6DFD1 /* image_helper.c */,
+				0B03494C1072021600B6DFD1 /* image_DXT.c */,
+				0B034947107201F700B6DFD1 /* SOIL.c */,
+				0BEC4F1F1071F51800EEE326 /* common.h */,
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
 				0B99D195106A8CFC008267D0 /* hexagon.h */,
 				0B99D196106A8CFC008267D0 /* hexagon.cpp */,
@@ -135,6 +157,10 @@
 				8DD76FAC0486AB0100D96B5E /* main.cpp in Sources */,
 				0B99D197106A8CFC008267D0 /* hexagon.cpp in Sources */,
 				0B99D1DF106A8EFE008267D0 /* Hexagons.cpp in Sources */,
+				0B034948107201F700B6DFD1 /* SOIL.c in Sources */,
+				0B03494D1072021600B6DFD1 /* stb_image_aug.c in Sources */,
+				0B03494E1072021600B6DFD1 /* image_helper.c in Sources */,
+				0B03494F1072021600B6DFD1 /* image_DXT.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +177,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/SOIL/lib\"",
+				);
 				PRODUCT_NAME = glut_03;
 			};
 			name = Debug;
@@ -162,6 +192,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/SOIL/lib\"",
+				);
 				PRODUCT_NAME = glut_03;
 			};
 			name = Release;
@@ -174,9 +208,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/dadi/Downloads/SOIL/src;
+				LIBRARY_SEARCH_PATHS = /Users/dadi/Downloads/SOIL/lib;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
+				PRELINK_LIBS = "";
 				SDKROOT = macosx10.5;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 			};
 			name = Debug;
 		};
@@ -187,8 +225,12 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/dadi/Downloads/SOIL/src;
+				LIBRARY_SEARCH_PATHS = /Users/dadi/Downloads/SOIL/lib;
 				PREBINDING = NO;
+				PRELINK_LIBS = "";
 				SDKROOT = macosx10.5;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 			};
 			name = Release;
 		};

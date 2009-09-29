@@ -18,14 +18,14 @@ GLfloat cam_z = 0.0f;
 #define NUM_TEXTURES 8
 
 char* texture_filenames[ NUM_TEXTURES ] = {
-    "shrek.png",
-    "fiona.png",
-    "donkey.png",
-    "charming.png",
-    "gingerbread.png",
-    "lord.png",
-    "cat.png",
-    "pinocchio.png"
+    "/Users/dadi/Dropbox/projects/Hexagon/shrek.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/fiona.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/donkey.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/charming.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/gingerbread.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/lord.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/cat.png",
+    "/Users/dadi/Dropbox/projects/Hexagon/pinocchio.png"
 };
 
 GLuint textures[ NUM_TEXTURES ];
