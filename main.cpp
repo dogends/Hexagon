@@ -18,7 +18,7 @@ GLint hex_id = 0;
 GLfloat cam_z = 0.0f;
 #define NUM_TEXTURES 8
 
-/*
+#ifdef __APPLE__
 char* texture_filenames[ NUM_TEXTURES ] = {
     "/Users/dadi/Dropbox/projects/Hexagon/shrek.png",
     "/Users/dadi/Dropbox/projects/Hexagon/fiona.png",
@@ -29,8 +29,7 @@ char* texture_filenames[ NUM_TEXTURES ] = {
     "/Users/dadi/Dropbox/projects/Hexagon/cat.png",
     "/Users/dadi/Dropbox/projects/Hexagon/pinocchio.png"
 };
-*/
-
+#else
 char* texture_filenames[ NUM_TEXTURES ] = {
     "shrek.png",
     "fiona.png",
@@ -41,6 +40,7 @@ char* texture_filenames[ NUM_TEXTURES ] = {
     "cat.png",
     "pinocchio.png"
 };
+#endif
 
 GLuint textures[ NUM_TEXTURES ];
 
@@ -236,12 +236,12 @@ void onKeyboard(unsigned char key, int x, int y)
 
     case 'a':
     case 'A':
-	  	angle-=1.0f;
+	  	angle-=4.0f;
         break;
 
     case 'z':
     case 'Z':
-        angle+=1.0f;
+        angle+=4.0f;
         break;
 
     case 's':

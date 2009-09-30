@@ -3,7 +3,7 @@
 
 Segment::Segment()
 {
-    bounce_angle = 0.0f;;
+    bounce_angle = 0.0f;
 	bounce_max = 0.0f;
 	bounce_offset = 0.0f;
 }
