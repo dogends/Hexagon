@@ -13,10 +13,12 @@ GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 
 
 GLfloat angle = 0.0f;
+GLfloat zoom = -20.0f;
 GLint hex_id = 0;
 GLfloat cam_z = 0.0f;
 #define NUM_TEXTURES 8
 
+/*
 char* texture_filenames[ NUM_TEXTURES ] = {
     "/Users/dadi/Dropbox/projects/Hexagon/shrek.png",
     "/Users/dadi/Dropbox/projects/Hexagon/fiona.png",
@@ -26,6 +28,18 @@ char* texture_filenames[ NUM_TEXTURES ] = {
     "/Users/dadi/Dropbox/projects/Hexagon/lord.png",
     "/Users/dadi/Dropbox/projects/Hexagon/cat.png",
     "/Users/dadi/Dropbox/projects/Hexagon/pinocchio.png"
+};
+*/
+
+char* texture_filenames[ NUM_TEXTURES ] = {
+    "shrek.png",
+    "fiona.png",
+    "donkey.png",
+    "charming.png",
+    "gingerbread.png",
+    "lord.png",
+    "cat.png",
+    "pinocchio.png"
 };
 
 GLuint textures[ NUM_TEXTURES ];
@@ -80,24 +94,32 @@ glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
     int tex_num = 0;
 
-glMatrixMode(GL_MODELVIEW);
+    glMatrixMode(GL_MODELVIEW);
 
     for (;current!=last;current++) {
+
         glLoadIdentity();
 
+        glTranslatef( 0.0f,00.0f, zoom );
+        glRotatef( angle, 1.0f, 0.0, 0.0f );
+
+        // should position the view really, but for now just move all the hexagons
+        // into a better vieing position
+     //   glTranslatef( 0.0f,00.0f,-20.0f );
+       // glRotatef( -45.0f, 1.0f, 0.0, 0.0f );
+
+        glTranslatef( (*current)->x, (*current)->y, 0.0f );
+
+        glTranslatef( 0.0f, 0.0f, (*current)->bounce_offset );
+
+        //glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
+
+        // assign a texture
         glBindTexture( GL_TEXTURE_2D, textures[tex_num] );
         tex_num++;
         if (tex_num>=NUM_TEXTURES) tex_num = 0;
 
-
-glTranslatef( 0.0f,00.0f,-30.0f );
- glRotatef( angle, 1.0f, 0.0, 0.0f );
-
-
-        glTranslatef( (*current)->x, (*current)->y, 0.0f );
-        //glScalef( 5.0f, 5.0f, 5.0f );
-        glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
-
+        // draw the hexagon
         glCallList(1);
 
         cnt+=1;
@@ -124,7 +146,7 @@ void onResize(int w, int h) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective(60.0f, aspectRatio, 1.0f, 200.0f );
+	gluPerspective(60.0f, aspectRatio, 0.1f, 200.0f );
 
     //glRotatef(90.0f,1.0f,0,0);
 }
@@ -134,8 +156,13 @@ void onTimer( int id ) {
 	rot+=2.0f;
 	if (rot>360.0f) rot-=360.0f;
 
-	angle+=0.50f;
-	if (angle>360.0f) angle-=360.0f;
+    // Process each hexagon
+    std::vector<Hexagon*>::iterator current = pHexagons->begin();
+	std::vector<Hexagon*>::iterator last = pHexagons->end();
+    for (;current!=last;current++) {
+        (*current)->process();
+    }
+
 	glutPostRedisplay();
 	glutTimerFunc( 10, onTimer, 1 );
 }
@@ -195,6 +222,42 @@ GLfloat tex_coords[7][2] = {
 
 }
 
+void onKeyboard(unsigned char key, int x, int y)
+{
+  switch (key)
+  {
+    case 27:
+	  exit (0);
+	  break;
+
+    case ' ':
+	  pHexagons->root->setBounce(5.0f);
+	  break;
+
+    case 'a':
+    case 'A':
+	  	angle-=1.0f;
+        break;
+
+    case 'z':
+    case 'Z':
+        angle+=1.0f;
+        break;
+
+    case 's':
+    case 'S':
+	  	zoom+=1.0f;
+        break;
+
+    case 'x':
+    case 'X':
+        zoom-=1.0f;
+        break;
+
+  }
+}
+
+
 int main (int argc, char * argv[]) {
 
     pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 15 ) );
@@ -215,6 +278,8 @@ int main (int argc, char * argv[]) {
 
 	/* register a timer function to increment the rotations */
 	glutTimerFunc( 10, onTimer, 1 );
+
+    glutKeyboardFunc( onKeyboard );
 
 	/* init some stuff */
 	setup();

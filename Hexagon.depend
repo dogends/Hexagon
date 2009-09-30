@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1254018848 source:c:\projects\hexagon\hexagon.cpp
+1254286774 source:c:\projects\hexagon\hexagon.cpp
 	"hexagon.h"
 
-1254018130 c:\projects\hexagon\hexagon.h
+1254286432 c:\projects\hexagon\hexagon.h
 	"common.h"
+	"segment.h"
 
-1254168904 source:c:\projects\hexagon\main.cpp
+1254287036 source:c:\projects\hexagon\main.cpp
 	"common.h"
 	"hexagons.h"
 
@@ -13,11 +14,12 @@
 	"common.h"
 	"hexagon.h"
 
-1254111020 source:c:\projects\hexagon\hexagons.cpp
+1254252912 source:c:\projects\hexagon\hexagons.cpp
 	"common.h"
 	"Hexagons.h"
 
-1254091764 c:\projects\hexagon\common.h
+1254252060 c:\projects\hexagon\common.h
+	<glut/glut.h>
 	<GL/glut.h>
 	<memory>
 	<math.h>
@@ -25,4 +27,10 @@
 	<SOIL.h>
 
 1215479608 c:\libraries\soil\include\soil.h
+
+1254286362 c:\projects\hexagon\segment.h
+	"common.h"
+
+1254286012 source:c:\projects\hexagon\segment.cpp
+	"segment.h"
 

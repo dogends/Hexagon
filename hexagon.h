@@ -7,6 +7,7 @@
  *
  */
 #include "common.h"
+#include "segment.h"
 
 class Hexagon {
 
@@ -26,13 +27,18 @@ public:
 	static const Edge EdgeAjacents[6][2];
 
 	Hexagon* connections[6];
+	Segment* segments[6];
 
 	float x,y,z;
+	float bounce_offset;
 
 	Hexagon();
-	Hexagon(float x, float y, float z);
+	~Hexagon();
 
+    void Hexagon::setBounce( float max );
     void setPosition( float x, float y, float z );
+
+    void process();
 };
 
 

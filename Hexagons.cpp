@@ -28,7 +28,7 @@ Hexagons* Hexagons::create( int radius ) {
 	Hexagons* retval = new Hexagons();
 
 	// first create the root hexagon, this is positioned centered at 0,0,0
-	retval->root = new Hexagon(0,0,0);
+	retval->root = new Hexagon();
 
 	// add this hexagon to the complete list
 	retval->push_back( retval->root );
