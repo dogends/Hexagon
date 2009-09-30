@@ -32,6 +32,10 @@ Hexagon::Hexagon()
 {
     setPosition(0,0,0);
 
+	float bounce_offset;
+    float bounce_angle;
+	float bounce_max;
+	
 	// reset connections
 	memset( connections, 0,  sizeof(connections) );
 
@@ -47,6 +51,9 @@ Hexagon::~Hexagon()
 
 void Hexagon::setBounce( float max )
 {
+	bounce_max = max;
+	bounce_angle = 0.0f;
+	
     for( int i=0; i<6; i++) {
 		segments[i]->setBounce( max );
 		segments[i]->bounce_angle=0.0f;
@@ -64,6 +71,18 @@ void Hexagon::process()
 {
 	// reset to 0 in case there is nothing to do!
 	bounce_offset = 0.0f;
+	
+	if (bounce_max>0.0f) {
+		bounce_angle+=2.0f;
+		if (bounce_angle>360.0f)bounce_angle-=360.0f;
+		bounce_offset = sin( deg_to_rad(bounce_angle) ) * bounce_max;
+		bounce_max*=0.995f;
+		
+	}
+	
+	return;
+	
+	
 	
     // calc amount of bounce
     int cnt = 0;

@@ -31,7 +31,9 @@ public:
 
 	float x,y,z;
 	float bounce_offset;
-
+    float bounce_angle;
+	float bounce_max;
+	
 	Hexagon();
 	~Hexagon();
 
