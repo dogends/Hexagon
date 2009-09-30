@@ -1,8 +1,9 @@
-1c36692d3ade6be1b39fde77bc192b90 288792d27fec834302cd520cdaa8533b ffffffffffffffffffffffffffffffff 143452 /Users/dadi/Dropbox/projects/Hexagon/Debug/glut_03
-0000000000aed4fd00000000000081f3 056a4db02197c640bb3a69fcdedb2461 ffffffffffffffffffffffffffffffff 42092 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/main.o
+88b62b9e0e3730b825047495ba4d04e8 288792d27fec834302cd520cdaa8533b ffffffffffffffffffffffffffffffff 148428 /Users/dadi/Dropbox/projects/Hexagon/Debug/glut_03
+00000000000282de0000000000001b2c 056a4db02197c640bb3a69fcdedb2461 ffffffffffffffffffffffffffffffff 45852 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/main.o
+000000004a6f18ea0000000000009677 948042b37e2a3f71969baae206542768 ffffffffffffffffffffffffffffffff 13948 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/segment.o
 00000000000006a1000000000000a68d 428b7f4735d026e5ce1da10617216785 ffffffffffffffffffffffffffffffff 19540 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/image_DXT.o
 0000000047e8856d000000000000bcdf dfb9ffa86d70078ba6dfa7879ab40bc9 ffffffffffffffffffffffffffffffff 14028 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/image_helper.o
 00000000499b10f700000000000127d0 6a1c424954ac3e0dd70f032e7b96d8c9 ffffffffffffffffffffffffffffffff 148136 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/stb_image_aug.o
 000000004ab326650000000000025fd1 be33454b86821fb9e41213cd0b497eb6 ffffffffffffffffffffffffffffffff 47188 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/SOIL.o
-0000000000aea4e90000000000008ba5 542749181b357e8f3e5936886cb1a438 ffffffffffffffffffffffffffffffff 70912 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/Hexagons.o
-000000004a6f19be0000000000009675 0466ea68ce9cc9ef6d239761f33965fc ffffffffffffffffffffffffffffffff 15648 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/hexagon.o
+000000000002a17a0000000000001d9e 542749181b357e8f3e5936886cb1a438 ffffffffffffffffffffffffffffffff 71720 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/Hexagons.o
+000000004ac336cc00000000000004f6 0466ea68ce9cc9ef6d239761f33965fc ffffffffffffffffffffffffffffffff 19360 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/hexagon.o

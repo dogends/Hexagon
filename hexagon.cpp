@@ -77,7 +77,7 @@ void Hexagon::process()
 			
 			segments[i]->bounce_angle+=2.0f;
 			if (segments[i]->bounce_angle>360.0f) segments[i]->bounce_angle-=360.0f;
-			segments[i]->bounce_max*=0.99f;
+			segments[i]->bounce_max*=0.995f;
 			
 			if (segments[i]->bounce_max<0.01f) segments[i]->bounce_max=0.0f;
         }

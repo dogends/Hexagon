@@ -13,7 +13,7 @@ GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 
 
 GLfloat angle = 0.0f;
-GLfloat zoom = -20.0f;
+GLfloat zoom = -10.0f;
 GLint hex_id = 0;
 GLfloat cam_z = 0.0f;
 #define NUM_TEXTURES 8
@@ -231,7 +231,7 @@ void onKeyboard(unsigned char key, int x, int y)
 	  break;
 
     case ' ':
-	  pHexagons->root->setBounce(5.0f);
+	  pHexagons->root->setBounce(10.0f);
 	  break;
 
     case 'a':
