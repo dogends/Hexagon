@@ -34,6 +34,8 @@ public:
     float bounce_angle;
 	float bounce_max;
 	
+	bool processed;
+	
 	Hexagon();
 	~Hexagon();
 

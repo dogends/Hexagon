@@ -19,5 +19,6 @@ public:
 	~Hexagons();
 
 	static Hexagons* create( int radius );
+	void resetProcessed();
 
 };

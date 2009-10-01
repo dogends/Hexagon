@@ -222,6 +222,48 @@ GLfloat tex_coords[7][2] = {
 
 }
 
+void processBounce()
+{
+	pHexagons->resetProcessed();
+	pHexagons->root->setBounce(10.0f);
+	
+	
+	// create a list of hexagons that need to be processed
+	std::vector<Hexagon*> to_process;
+	
+	// at the root to the current processing list
+	to_process.push_back( pHexagons->root );
+	
+	while ( to_process.size() > 0 ) {
+
+		Hexagon* current = to_process.back();
+        to_process.pop_back();
+
+		// if this has already been processed then continue onto next hexagon
+		if (current->processed) continue;
+		
+		
+		for (int i=Hexagon::EdgeTop; i<=Hexagon::EdgeTopLeft; i++) {
+		
+			// ripple top left
+			if ( (current->segments[ i ]->bounce_max>0.0f)  && (current->connections[ i ]) ) {
+				current->connections[ i ]->segments[ i ]->bounce_max=current->segments[ i ]->bounce_max*0.75f; 
+				current->connections[ i ]->segments[ i ]->bounce_angle=0.0f;
+				to_process.insert( to_process.begin(), current->connections[ i ] );
+			}
+		
+		}
+		
+		current->processed = true;
+		
+		
+	}
+	
+	
+	
+}
+
+
 void onKeyboard(unsigned char key, int x, int y)
 {
   switch (key)
@@ -231,7 +273,8 @@ void onKeyboard(unsigned char key, int x, int y)
 	  break;
 
     case ' ':
-	  pHexagons->root->setBounce(10.0f);
+		  processBounce();
+
 	  break;
 
     case 'a':

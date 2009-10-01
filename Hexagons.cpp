@@ -51,12 +51,12 @@ Hexagons* Hexagons::create( int radius ) {
     for (int i=0; i<radius; i++) max_cnt+=(i*6);
 
     float offsets[6][2] = {
-        {  0.0f,     -hyp },         /* top */
-        {  offset_x, -offset_y },    /* top right */
-        {  offset_x,  offset_y },    /* bottom right */
-        {  0.0f,      hyp},          /* bottom */
-        { -offset_x,  offset_y },    /* bottom left */
-        { -offset_x, -offset_y }    /* top left */
+        {  0.0f,      hyp },         /* top */
+        {  offset_x,  offset_y },    /* top right */
+        {  offset_x, -offset_y },    /* bottom right */
+        {  0.0f,     -hyp},          /* bottom */
+        { -offset_x, -offset_y },    /* bottom left */
+        { -offset_x,  offset_y }    /* top left */
     };
 
 	// create the adjacent hexagons
@@ -197,3 +197,8 @@ Hexagons* Hexagons::create( int radius ) {
 	return retval;
 }
 
+void Hexagons::resetProcessed() {
+	std::vector<Hexagon*>::iterator current = begin();
+	std::vector<Hexagon*>::iterator last = end();
+	for(;current!=last;current++) (*current)->processed=false;
+}

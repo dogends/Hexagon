@@ -32,14 +32,13 @@ Hexagon::Hexagon()
 {
     setPosition(0,0,0);
 
-	float bounce_offset;
-    float bounce_angle;
-	float bounce_max;
+	bounce_offset = 0.0f;
+    bounce_angle = 0.0f;
+	bounce_max = 0.0f;
+	processed = false;
 	
 	// reset connections
 	memset( connections, 0,  sizeof(connections) );
-
-bounce_offset = 0.0f;
 
 	for( int i=0; i<7; i++) segments[i] = new Segment();
 }
@@ -71,26 +70,24 @@ void Hexagon::process()
 {
 	// reset to 0 in case there is nothing to do!
 	bounce_offset = 0.0f;
-	
+/*	
 	if (bounce_max>0.0f) {
 		bounce_angle+=2.0f;
 		if (bounce_angle>360.0f)bounce_angle-=360.0f;
 		bounce_offset = sin( deg_to_rad(bounce_angle) ) * bounce_max;
 		bounce_max*=0.995f;
-		
 	}
 	
 	return;
-	
-	
+*/
 	
     // calc amount of bounce
-    int cnt = 0;
+    float cnt = 0.0f;
     float bounce = 0.0f;
     float angle = 0.0f;
     for (int i=0; i<6; i++) {
-        if (segments[i]->bounce_max>=0.0f) {
-            cnt+=1;
+        if (segments[i]->bounce_max>0.0f) {
+            cnt+=1.0f;
             bounce+=segments[i]->bounce_max;
             angle+=segments[i]->bounce_angle;
 			
@@ -103,9 +100,9 @@ void Hexagon::process()
 
     }
 
-    if (bounce>=0.0f) {
-		angle/=(float)cnt;
-		bounce/=(float)cnt;
+    if (bounce>0.0f) {
+		angle/=cnt;
+	 	bounce/=cnt;
         bounce_offset = sin( deg_to_rad(angle) ) * bounce;
     }
 
