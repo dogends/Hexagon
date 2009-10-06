@@ -2,7 +2,6 @@
 #include "common.h"
 #include "hexagons.h"
 
-
 std::auto_ptr<Hexagons> pHexagons;
 
 GLfloat rot = 0.0f;
@@ -72,25 +71,20 @@ void onRender(void) {
 	std::vector<Hexagon*>::iterator last = pHexagons->end();
 
     int cnt=0;
-  //  glColor3f( 0.0f, 0.0f, 1.0f );
-
-   glEnable( GL_TEXTURE_2D );
-
+  
+	glEnable( GL_TEXTURE_2D );
 
     // select modulate to mix texture with color for shading
     glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
 
-    // when texture area is small, bilinear filter the closest mipmap
- //   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
-   //                  GL_LINEAR_MIPMAP_NEAREST );
     // when texture area is large, bilinear filter the original
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
     // the texture wraps over at the edges (repeat)
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
     int tex_num = 0;
 
@@ -103,16 +97,8 @@ glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTranslatef( 0.0f,00.0f, zoom );
         glRotatef( angle, 1.0f, 0.0, 0.0f );
 
-        // should position the view really, but for now just move all the hexagons
-        // into a better vieing position
-     //   glTranslatef( 0.0f,00.0f,-20.0f );
-       // glRotatef( -45.0f, 1.0f, 0.0, 0.0f );
-
         glTranslatef( (*current)->x, (*current)->y, 0.0f );
-
         glTranslatef( 0.0f, 0.0f, (*current)->bounce_offset );
-
-        //glRotatef( rot+(cnt), 1.0f, 0.0, 0.0f );
 
         // assign a texture
         glBindTexture( GL_TEXTURE_2D, textures[tex_num] );
@@ -124,8 +110,6 @@ glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
         cnt+=1;
     }
-
-
 
     // swap buffers
     glutSwapBuffers();
@@ -148,7 +132,6 @@ void onResize(int w, int h) {
 
 	gluPerspective(60.0f, aspectRatio, 0.1f, 200.0f );
 
-    //glRotatef(90.0f,1.0f,0,0);
 }
 
 /* timer event handler */
@@ -180,41 +163,33 @@ void setup() {
 
     }
 
-
-GLfloat tex_coords[7][2] = {
-    { 0.75f, 1.0f },
-    { 1.0f,  0.5f },
-    { 0.75f, 0.0f },
-    { 0.25f, 0.0f },
-    { 0.0f,  0.5f },
-    { 0.25f, 1.0f },
-    { 0.75f, 1.0f }
-};
+	GLfloat tex_coords[7][2] = {
+		{ 0.75f, 1.0f },
+		{ 1.0f,  0.5f },
+		{ 0.75f, 0.0f },
+		{ 0.25f, 0.0f },
+		{ 0.0f,  0.5f },
+		{ 0.25f, 1.0f },
+		{ 0.75f, 1.0f }
+	};
 
 	glNewList(1, GL_COMPILE );
-
-    // setup texture mapping
-      //glEnable( GL_TEXTURE_2D );
-      //glBindTexture( GL_TEXTURE_2D, 1 );
 
 		glBegin( GL_TRIANGLE_FAN );
 
             glTexCoord2d( 0.5f, 0.5f );
             glVertex3f( 0.0f, 0.0f, 0.0f );
 
-		for (int p=0; p<7; p++ )
-		{
-			GLfloat angle = 30.0f + (p*60.0f);
+			for (int p=0; p<7; p++ )
+			{
+				GLfloat angle = 30.0f + (p*60.0f);
 
-			GLfloat x = 1.0f*sin(deg_to_rad(angle));
-			GLfloat y = 1.0f*cos(deg_to_rad(angle));
+				GLfloat x = 1.0f*sin(deg_to_rad(angle));
+				GLfloat y = 1.0f*cos(deg_to_rad(angle));
 
-			glTexCoord2d( tex_coords[p][0] , tex_coords[p][1] );
-			glVertex3f( x, y, 0.0f );
-
-
-		}
-
+				glTexCoord2d( tex_coords[p][0] , tex_coords[p][1] );
+				glVertex3f( x, y, 0.0f );
+			}
 
 		glEnd();
 
@@ -225,9 +200,8 @@ GLfloat tex_coords[7][2] = {
 void processBounce()
 {
 	pHexagons->resetProcessed();
-	//pHexagons->root->setBounce(20.0f);
 
-	float bounce = 20.0f;
+	float bounce = 30.0f;
 	
 	std::vector<Hexagon*> current_process;
 	std::vector<Hexagon*> next_process;
@@ -235,7 +209,7 @@ void processBounce()
 	next_process.push_back( pHexagons->root );
 	
 	while (next_process.size() > 0) {
-	
+		
 		current_process = next_process;
 		next_process.clear();
 		
@@ -250,63 +224,14 @@ void processBounce()
 			for (int i=Hexagon::EdgeTop; i<=Hexagon::EdgeTopLeft; i++) {
 				if (current->connections[i] && !current->connections[i]->processed) {
 					next_process.push_back( current->connections[i] );
+					current->connections[i]->processed = true;
 				}
 			}
 		
 		}
 	
 		bounce*=0.9f;
-	
 	}
-	/*
-	// create a list of hexagons that need to be processed
-	std::vector<Hexagon*> to_process;
-	
-	// at the root to the current processing list
-	to_process.push_back( pHexagons->root );
-	
-	while ( to_process.size() > 0 ) {
-
-		Hexagon* current = to_process.back();
-        to_process.pop_back();
-
-		// if this has already been processed then continue onto next hexagon
-		if (current->processed) continue;
-		
-		for (int i=Hexagon::EdgeTop; i<=Hexagon::EdgeTopLeft; i++) {
-		
-			float max = 0.0f;
-			float cnt = 0.0f;
-			for (int s=0;s<6;s++) {
-				if ( current->segments[s]->bounce_max > 0.0f) {
-					max+= current->segments[s]->bounce_max;
-					cnt+= 1.0f;
-				}
-			}
-			
-			if (max>0.0f) {
-			
-				max/=cnt;
-				
-				//if (current->connections[i] && !current->connections[i]->processed) {	
-				if (current->connections[i] && !current->connections[i]->segments[ Hexagon::EdgeAjacents[i]  ]->processed) {	
-						
-					current->connections[i]->setBounce( max*0.75f  );
-					to_process.insert( to_process.begin(), current->connections[ i ] );
-				}
-				
-				
-				
-			}
-			
-		}
-		
-		current->processed = true;
-		
-		
-	}
-	
-	*/
 	
 }
 
@@ -350,7 +275,7 @@ void onKeyboard(unsigned char key, int x, int y)
 
 int main (int argc, char * argv[]) {
 
-    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 15 ) );
+    pHexagons = std::auto_ptr<Hexagons>( Hexagons::create( 25 ) );
 
 	/* Initialise glut with any passed command line options */
 	glutInit(&argc, argv);

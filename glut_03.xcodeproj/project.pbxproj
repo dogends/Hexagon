@@ -50,7 +50,7 @@
 		0B99D1DD106A8EFE008267D0 /* Hexagons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagons.h; sourceTree = "<group>"; };
 		0B99D1DE106A8EFE008267D0 /* Hexagons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hexagons.cpp; sourceTree = "<group>"; };
 		0BEC4F1F1071F51800EEE326 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		8DD76FB20486AB0100D96B5E /* glut_03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = glut_03; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76FB20486AB0100D96B5E /* Hexagon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Hexagon; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76FB20486AB0100D96B5E /* glut_03 */,
+				8DD76FB20486AB0100D96B5E /* Hexagon */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8DD76FA90486AB0100D96B5E /* glut_03 */ = {
+		8DD76FA90486AB0100D96B5E /* hexagon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "glut_03" */;
+			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "hexagon" */;
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
@@ -147,10 +147,10 @@
 			);
 			dependencies = (
 			);
-			name = glut_03;
+			name = hexagon;
 			productInstallPath = "$(HOME)/bin";
 			productName = glut_03;
-			productReference = 8DD76FB20486AB0100D96B5E /* glut_03 */;
+			productReference = 8DD76FB20486AB0100D96B5E /* Hexagon */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +165,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DD76FA90486AB0100D96B5E /* glut_03 */,
+				8DD76FA90486AB0100D96B5E /* hexagon */,
 			);
 		};
 /* End PBXProject section */
@@ -203,7 +203,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/SOIL/lib\"",
 				);
-				PRODUCT_NAME = glut_03;
+				PRODUCT_NAME = Hexagon;
 			};
 			name = Debug;
 		};
@@ -218,7 +218,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/SOIL/lib\"",
 				);
-				PRODUCT_NAME = glut_03;
+				PRODUCT_NAME = Hexagon;
 			};
 			name = Release;
 		};
@@ -259,7 +259,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "glut_03" */ = {
+		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "hexagon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB928608733DD80010E9CD /* Debug */,

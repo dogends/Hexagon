@@ -1,5 +1,3 @@
-ffffffffffffffffffffffffffffffff 056a4db02197c640bb3a69fcdedb2461 ffffffffffffffffffffffffffffffff 97092 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/main.o
-ffffffffffffffffffffffffffffffff 288792d27fec834302cd520cdaa8533b ffffffffffffffffffffffffffffffff 152368 /Users/dadi/Dropbox/projects/Hexagon/Debug/glut_03
 000000004a6f19cf00000000000097a5 948042b37e2a3f71969baae206542768 ffffffffffffffffffffffffffffffff 14704 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/segment.o
 00000000000006a1000000000000a68d 428b7f4735d026e5ce1da10617216785 ffffffffffffffffffffffffffffffff 19540 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/image_DXT.o
 0000000047e8856d000000000000bcdf dfb9ffa86d70078ba6dfa7879ab40bc9 ffffffffffffffffffffffffffffffff 14028 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/image_helper.o
@@ -7,3 +5,5 @@ ffffffffffffffffffffffffffffffff 288792d27fec834302cd520cdaa8533b ffffffffffffff
 000000004ab326650000000000025fd1 be33454b86821fb9e41213cd0b497eb6 ffffffffffffffffffffffffffffffff 47188 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/SOIL.o
 00000000000ea4450000000000001cd3 542749181b357e8f3e5936886cb1a438 ffffffffffffffffffffffffffffffff 72652 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/Hexagons.o
 000000004acaf9e20000000000000acc 0466ea68ce9cc9ef6d239761f33965fc ffffffffffffffffffffffffffffffff 20476 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/hexagon.o
+ffffffffffffffffffffffffffffffff 056a4db02197c640bb3a69fcdedb2461 ffffffffffffffffffffffffffffffff 97092 /Users/dadi/Dropbox/projects/Hexagon/glut_03.build/Debug/glut_03.build/Objects-normal/i386/main.o
+ffffffffffffffffffffffffffffffff 288792d27fec834302cd520cdaa8533b ffffffffffffffffffffffffffffffff 0 /Users/dadi/Dropbox/projects/Hexagon/Debug/glut_03
