@@ -200,5 +200,5 @@ Hexagons* Hexagons::create( int radius ) {
 void Hexagons::resetProcessed() {
 	std::vector<Hexagon*>::iterator current = begin();
 	std::vector<Hexagon*>::iterator last = end();
-	for(;current!=last;current++) (*current)->processed=false;
+	for(;current!=last;current++) (*current)->resetProcessed();
 }

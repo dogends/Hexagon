@@ -225,9 +225,40 @@ GLfloat tex_coords[7][2] = {
 void processBounce()
 {
 	pHexagons->resetProcessed();
-	pHexagons->root->setBounce(10.0f);
+	//pHexagons->root->setBounce(20.0f);
+
+	float bounce = 20.0f;
 	
+	std::vector<Hexagon*> current_process;
+	std::vector<Hexagon*> next_process;
+
+	next_process.push_back( pHexagons->root );
 	
+	while (next_process.size() > 0) {
+	
+		current_process = next_process;
+		next_process.clear();
+		
+		while ( current_process.size() > 0 ) {
+		
+			Hexagon* current = current_process.back();
+			current_process.pop_back();
+		
+			current->setBounce( bounce );
+			current->processed = true;
+		
+			for (int i=Hexagon::EdgeTop; i<=Hexagon::EdgeTopLeft; i++) {
+				if (current->connections[i] && !current->connections[i]->processed) {
+					next_process.push_back( current->connections[i] );
+				}
+			}
+		
+		}
+	
+		bounce*=0.9f;
+	
+	}
+	/*
 	// create a list of hexagons that need to be processed
 	std::vector<Hexagon*> to_process;
 	
@@ -242,16 +273,32 @@ void processBounce()
 		// if this has already been processed then continue onto next hexagon
 		if (current->processed) continue;
 		
-		
 		for (int i=Hexagon::EdgeTop; i<=Hexagon::EdgeTopLeft; i++) {
 		
-			// ripple top left
-			if ( (current->segments[ i ]->bounce_max>0.0f)  && (current->connections[ i ]) ) {
-				current->connections[ i ]->segments[ i ]->bounce_max=current->segments[ i ]->bounce_max*0.75f; 
-				current->connections[ i ]->segments[ i ]->bounce_angle=0.0f;
-				to_process.insert( to_process.begin(), current->connections[ i ] );
+			float max = 0.0f;
+			float cnt = 0.0f;
+			for (int s=0;s<6;s++) {
+				if ( current->segments[s]->bounce_max > 0.0f) {
+					max+= current->segments[s]->bounce_max;
+					cnt+= 1.0f;
+				}
 			}
-		
+			
+			if (max>0.0f) {
+			
+				max/=cnt;
+				
+				//if (current->connections[i] && !current->connections[i]->processed) {	
+				if (current->connections[i] && !current->connections[i]->segments[ Hexagon::EdgeAjacents[i]  ]->processed) {	
+						
+					current->connections[i]->setBounce( max*0.75f  );
+					to_process.insert( to_process.begin(), current->connections[ i ] );
+				}
+				
+				
+				
+			}
+			
 		}
 		
 		current->processed = true;
@@ -259,7 +306,7 @@ void processBounce()
 		
 	}
 	
-	
+	*/
 	
 }
 

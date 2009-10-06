@@ -71,11 +71,13 @@
 		08FB7794FE84155DC02AAC07 /* glut_03 */ = {
 			isa = PBXGroup;
 			children = (
+				0BC037D9107B2EBA00F2599E /* SOIL */,
 				0B0349681072033B00B6DFD1 /* Carbon.framework */,
 				0B03491B1071FEEC00B6DFD1 /* libSOIL.a */,
 				0B99D15C106A48BD008267D0 /* GLUT.framework */,
 				0B99D15D106A48BD008267D0 /* OpenGL.framework */,
 				08FB7795FE84155DC02AAC07 /* Source */,
+				0BC037C7107B2E8C00F2599E /* Includes */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -85,20 +87,34 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0B1C3FD2107353DF00410069 /* segment.h */,
 				0B1C3FD3107353DF00410069 /* segment.cpp */,
+				08FB7796FE84155DC02AAC07 /* main.cpp */,
+				0B99D196106A8CFC008267D0 /* hexagon.cpp */,
+				0B99D1DE106A8EFE008267D0 /* Hexagons.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		0BC037C7107B2E8C00F2599E /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				0B1C3FD2107353DF00410069 /* segment.h */,
+				0BEC4F1F1071F51800EEE326 /* common.h */,
+				0B99D195106A8CFC008267D0 /* hexagon.h */,
+				0B99D1DD106A8EFE008267D0 /* Hexagons.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
+		0BC037D9107B2EBA00F2599E /* SOIL */ = {
+			isa = PBXGroup;
+			children = (
 				0B03494A1072021600B6DFD1 /* stb_image_aug.c */,
 				0B03494B1072021600B6DFD1 /* image_helper.c */,
 				0B03494C1072021600B6DFD1 /* image_DXT.c */,
 				0B034947107201F700B6DFD1 /* SOIL.c */,
-				0BEC4F1F1071F51800EEE326 /* common.h */,
-				08FB7796FE84155DC02AAC07 /* main.cpp */,
-				0B99D195106A8CFC008267D0 /* hexagon.h */,
-				0B99D196106A8CFC008267D0 /* hexagon.cpp */,
-				0B99D1DD106A8EFE008267D0 /* Hexagons.h */,
-				0B99D1DE106A8EFE008267D0 /* Hexagons.cpp */,
 			);
-			name = Source;
+			name = SOIL;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {

@@ -42,6 +42,7 @@ public:
     void Hexagon::setBounce( float max );
     void setPosition( float x, float y, float z );
 
+	void resetProcessed();
     void process();
 };
 

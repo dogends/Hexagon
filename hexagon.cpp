@@ -40,7 +40,7 @@ Hexagon::Hexagon()
 	// reset connections
 	memset( connections, 0,  sizeof(connections) );
 
-	for( int i=0; i<7; i++) segments[i] = new Segment();
+	for( int i=0; i<6; i++) segments[i] = new Segment();
 }
 
 Hexagon::~Hexagon()
@@ -64,6 +64,12 @@ void Hexagon::setPosition( float x, float y, float z )
     this->x = x;
     this->y = y;
     this->z = z;
+}
+
+void Hexagon::resetProcessed()
+{
+	processed = false;
+	for (int i=0;i<6;i++) segments[i]->resetProcessed();
 }
 
 void Hexagon::process()

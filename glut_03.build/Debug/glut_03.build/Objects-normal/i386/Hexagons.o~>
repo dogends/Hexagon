@@ -1,0 +1,2 @@
+/Users/dadi/Dropbox/projects/Hexagon/Hexagons.cpp: In member function 'void Hexagons::resetProcessed()':
+/Users/dadi/Dropbox/projects/Hexagon/Hexagons.cpp:203: error: 'class Hexagon' has no member named 'resetProcessed'
