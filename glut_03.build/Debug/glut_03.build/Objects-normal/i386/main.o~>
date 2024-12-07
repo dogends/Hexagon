@@ -1,3 +1,0 @@
-/Users/dadi/Dropbox/projects/Hexagon/main.cpp: In function 'void processBounce()':
-/Users/dadi/Dropbox/projects/Hexagon/main.cpp:258: error: expected primary-expression before 'OTHER' token
-/Users/dadi/Dropbox/projects/Hexagon/main.cpp:258: error: expected `;' before 'OTHER' token
